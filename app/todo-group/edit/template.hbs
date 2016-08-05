@@ -1,0 +1,7 @@
+
+<h3 class="page-title">Editing {{model.title}}</h3>
+{{#simple-form onsubmit=(action "updateCategory" model) as |formValues|}}
+{{input value=model.title type="text" class="input title-input"}}
+
+  <button type="submit" class="submit btn">Save</button>
+{{/simple-form}}

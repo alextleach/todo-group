@@ -1,0 +1,93 @@
+
+$gutter: 0.5rem;
+$main: #1fc7b3;
+$delete: #e00;
+
+body {
+  margin: 0;
+  width: 100%;
+  font-family: Helvetica, sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.top-nav {
+  background: #1fc7b3;
+  color: #fff;
+}
+
+.world {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.container {
+  width: 60%;
+  padding: 0 $gutter;
+  margin: 0 auto;
+}
+
+
+
+.todo-list {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  vertical-align: middle;
+  align-content: space-between;
+  &__item {
+    display: flex;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0.2rem 0;
+    padding: 0 $gutter;
+      border: 0.05rem solid #e8e8e8;
+      box-shadow: 0.15rem 0.15rem 0.1rem rgba(#ddd,.45);
+    border-radius: 0.4rem;
+  }
+  &__title{
+    flex-grow: 1;
+  }
+}
+
+.btn {
+  font-size: 0.8rem;
+  background: #5e666a;
+  padding: 0.35rem;
+  vertical-align: middle;
+  text-align: center;
+  border: none;
+  border-radius: 0.3rem;
+  color: #fff;
+  text-transform: uppercase;
+  box-shadow: 0.1rem 0.1rem 0.2rem rgba(#c2c0c0,.6);
+  margin: 0 0.2rem;
+
+    &:hover{
+      background: $main;
+    }
+}
+.edit-btn{
+  padding: 0.35rem 0.5rem;
+}
+
+.new-btn {
+  background: #02b3eb;
+  padding: 0.35rem 0.6rem;
+}
+
+.delete-btn {
+  background: $delete;
+  padding: 0.35rem;
+    &:hover{
+      background: darken($delete, 5%);
+    }
+}

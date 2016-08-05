@@ -1,1 +1,12 @@
-<h2 class="page-title">Create a New Todo List!</h2>
+{{outlet}}
+<h2 class="page-title">New Category</h2>
+{{#simple-form onsubmit=(action "createCategory") as |formValues|}}
+      <label class="label">Category Name</label>
+      <div class="control">
+        {{input value=formValues.title type="text" class="input title-input" placeholder="Category Name"}}
+      </div>
+
+      <div class="control">
+        <input type="submit" class="submit btn" value="Save">
+      </div>
+    {{/simple-form}}

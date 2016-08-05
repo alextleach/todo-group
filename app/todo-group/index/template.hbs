@@ -1,12 +1,23 @@
+{{!-- {{outlet}} --}}
 
-{{#link-to "todo-group.new" class="new-link"}}
-New List
-{{/link-to}}
 
-<ul class="todo-list">
-  {{#each model as |list|}}
-  <li class="todo-list__item">
-    {{list.title}}
-  </li>
-  {{/each}}
-</ul>
+
+    <h3 class="page-title">Categories</h3>
+    {{#link-to "todo-group.new" class="new-btn btn"}}
+    New Category
+    {{/link-to}}
+    <ul class="todo-list">
+      {{#each model as |list|}}
+      <li class="todo-list__item">
+        <p class="todo-list__title">
+          {{list.title}}
+        </p>
+        <div class="button-container">
+        {{#link-to "todo-group.edit" list.id class="btn edit-btn"}}
+        <span class="fa fa-pencil" aria-hidden="true"></span>
+        {{/link-to}}
+        <button class="delete-btn btn" {{action "destroyCategory" list}}><i class="fa fa-times" aria-hidden="true"></i></button>
+      </div>
+      </li>
+      {{/each}}
+    </ul>

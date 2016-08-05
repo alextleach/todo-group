@@ -1,4 +1,4 @@
-import { faker } from 'ember-cli-mirage';
+// import { faker } from 'ember-cli-mirage';
 
 export default function(server) {
 server.createList('todo-group', 10);
