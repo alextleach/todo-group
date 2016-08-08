@@ -9,6 +9,22 @@
       </span>
     </div>
   </div>
+  <nav class="nav">
+    <ul class="nav__list">
+    {{#each model as |item|}}
+    <li>
+      {{#link-to "todo-group.detail" item class="nav__item"}}
+      {{item.title}}
+      {{/link-to}}
+    </li>
+    {{/each}}
+    <li>
+      {{#link-to "todo-group.new" class="nav__item nav__item--new-link"}}
+      New Category
+      {{/link-to}}
+    </li>
+  </ul>
+  </nav>
 </div>
 <div class="container">
   {{outlet}}
