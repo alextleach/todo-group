@@ -1,14 +1,23 @@
-<h3 class="page-title">{{model.title}}</h3>
+<h3 class="page-title"><strong>{{model.title}}</strong></h3>
 <ul class="todo-list">
 {{#each model.items as |item|}}
 <li class="todo-list__item collection__item">
-<span class="todo-item__done fa fa-square-o"></span>
+<button class="toggle-button todo-item__toggle" {{action "toggleCheck" item}}>
+
+  <span class="todo-item__done fa {{if item.done "fa-check-square-o" "fa-square-o"}}"></span>
+
+</button>
 <span class="todo-item__name">
   {{item.name}}
 </span>
+<button class="delete-btn btn" {{action "destroy" item}}><i class="fa fa-trash" aria-hidden="true"></i></button>
 </li>
 {{/each}}
+{{#simple-form onsubmit=(action "createTodoItem" model) as |formValues|}}
 <li class="todo-list__item collection__item">
-  input
+  {{input type="text" value=formValues.name class="input todo-item-name my-input"}}
+
+    <button type="submit" class="submit btn">ADD</button>
 </li>
+{{/simple-form}}
 </ul>

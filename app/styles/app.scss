@@ -2,7 +2,8 @@
 $gutter: 0.5rem;
 $main: #1fc7b3;
 $accent: #462999;
-$delete: #e00;
+$orange: #f2b130;
+$delete: #d11;
 
 body {
   margin: 0;
@@ -113,38 +114,46 @@ a {
 }
 
 .todo-list {
-  width: 100%;
   display: flex;
   flex-direction: column;
   vertical-align: middle;
-  align-content: space-between;
+  justify-content: space-between;
   margin-top: 0;
+  border-radius: 0.2rem;
   box-shadow: 0.15rem 0.15rem 0.1rem rgba(#ddd,.35);
   &__item {
     display: flex;
+    flex-direction: row;
     align-items: center;
     vertical-align: middle;
+    justify-content: space-between;
     padding: 0 $gutter;
       border: 0.05rem solid rgba(#e8e8e8,.70);
-    border-radius: 0.2rem;
   }
   &__title{
     flex-grow: 1;
   }
+
 }
 
 .page-title{
   font-weight: normal;
+  text-transform: capitalize;
     strong{
       color: $accent;
     }
 }
 
 .collection__item {
-  font-size: 1.2rem;
+  font-size: 1rem;
   padding: 0.4rem;
   display: flex;
   align-items: center;
+  justify-content: space-between;
+  vertical-align: middle;
+  &:last-child{
+    padding: 0.9rem $gutter;
+  }
 }
 .todo-item{
   &__name {
@@ -158,13 +167,22 @@ a {
     }
   }
 }
+.fa-check-square-o{
+  color: #0ab358;
+  transition: color 200ms linear;
+}
+
+.button-container {
+  display: flex;
+}
 .btn {
   font-size: 0.8rem;
   align-items: center;
-  background: #1eaae6;
-  padding: 0.35rem;
+  background: #004eff;
+  padding: 0.4rem;
   text-align: center;
   border: none;
+  outline: none;
   border-radius: 0.2rem;
   color: #fff;
   text-transform: uppercase;
@@ -182,7 +200,7 @@ a {
 }
 
 .new-btn {
-  background: #fbbd44;
+  background: $orange;
   padding: 0.35rem 0.6rem;
   vertical-align: middle;
 }
@@ -200,6 +218,14 @@ a {
     }
 }
 
+.submit {
+  font-size: 0.9rem;
+  margin-left: 0.1rem;
+  padding: 0.35rem 0.6rem;
+  cursor: pointer;
+}
+
+
 .editing {
   width: 100%;
   &__form {
@@ -211,14 +237,25 @@ a {
   width: 100%;
   border: 0;
   font-size: 1rem;
+  color: #a2a3a3;
   padding: 0.3rem 0.1rem;
   outline: none;
-  margin-bottom: 0.5rem;
+  // margin-bottom: 0.5rem;
   border-bottom: 0.03rem solid #818181;
-  transition: background 200ms linear, border 150ms linear;
+  transition: background 200ms linear, border 150ms linear, color 300ms linear 50ms;
     &:focus {
-      background: rgba(#f0ff95,.59);
+      background: rgba(#ffe300,.29);
       border-bottom: 0.03rem solid $accent;
-      transition: background 200ms linear, border 150ms linear;
+      color: #222;
+      transition: background 200ms linear, border 150ms linear, color 300ms linear 50ms;
     }
+}
+
+.toggle-button{
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+  font-size: 1.3rem;
 }

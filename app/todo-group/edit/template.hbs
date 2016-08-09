@@ -3,7 +3,7 @@
 <h3 class="page-title">Editing <strong>{{model.title}}</strong></h3>
 <div class="editing__form">
 {{#simple-form onsubmit=(action "updateCategory" model) as |formValues|}}
-{{input value=model.title type="text" class="input title-input my-input"}}
+{{input value=model.title type="text" id="stuff" class="input title-input my-input"}}
 
   <button type="submit" class="submit btn">Save</button>
 {{/simple-form}}

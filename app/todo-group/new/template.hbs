@@ -1,12 +1,8 @@
 {{outlet}}
 <h2 class="page-title">New Category</h2>
 {{#simple-form onsubmit=(action "createCategory") as |formValues|}}
-      <label class="label">Category Name</label>
-      <div class="control">
-        {{input value=formValues.title type="text" class="input title-input" placeholder="Category Name"}}
-      </div>
-
-      <div class="control">
-        <input type="submit" class="submit btn" value="Save">
-      </div>
-    {{/simple-form}}
+<div class="todo-list__item collection__item">
+        {{input value=formValues.title type="text" class="input title-input my-input" placeholder="Category Name"}}
+        <button type="submit" class="submit btn">SAVE</button>
+</div>
+{{/simple-form}}
