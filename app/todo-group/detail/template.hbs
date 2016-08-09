@@ -1,6 +1,14 @@
 <h3 class="page-title">{{model.title}}</h3>
+<ul class="todo-list">
 {{#each model.items as |item|}}
-<div class="collection__item">
-<span class="todo-item__name">{{item.name}}</span>
-</div>
+<li class="todo-list__item collection__item">
+<span class="todo-item__done fa fa-square-o"></span>
+<span class="todo-item__name">
+  {{item.name}}
+</span>
+</li>
 {{/each}}
+<li class="todo-list__item collection__item">
+  input
+</li>
+</ul>

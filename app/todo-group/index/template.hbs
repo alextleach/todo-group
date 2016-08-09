@@ -1,9 +1,11 @@
 
-
+    <div class="top-categories">
     <h3 class="page-title">Categories</h3>
     {{#link-to "todo-group.new" class="new-btn btn"}}
+    <i class="fa fa-plus" aria-hidden="true"></i>
     New Category
     {{/link-to}}
+  </div>
     <ul class="todo-list">
       {{#each model as |list|}}
       <li class="todo-list__item">
@@ -14,7 +16,7 @@
         {{#link-to "todo-group.edit" list.id class="btn edit-btn"}}
         <span class="fa fa-pencil" aria-hidden="true"></span>
         {{/link-to}}
-        <button class="delete-btn btn" {{action "destroyCategory" list}}><i class="fa fa-times" aria-hidden="true"></i></button>
+        <button class="delete-btn btn" {{action "destroyCategory" list}}><i class="fa fa-trash" aria-hidden="true"></i></button>
       </div>
       </li>
       {{/each}}

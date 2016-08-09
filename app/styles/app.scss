@@ -1,12 +1,15 @@
 
 $gutter: 0.5rem;
 $main: #1fc7b3;
+$accent: #462999;
 $delete: #e00;
 
 body {
   margin: 0;
   width: 100%;
-  font-family: Helvetica, sans-serif;
+  background: #f6f6f6;
+  font-family: 'Raleway', sans-serif;
+  color: #131313;
 }
 
 ul {
@@ -21,7 +24,65 @@ a {
 
 .top-nav {
   background: #1fc7b3;
+  width: 100%;
   color: #fff;
+  &__container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 0 $gutter;
+  }
+  &__content__title {
+    font-weight: normal;
+    font-size: 2.3rem;
+    font-family: 'Modak', sans-serif;
+    vertical-align: middle;
+    letter-spacing: 0.05rem;
+    padding-top: $gutter;
+    text-shadow: 0.1rem 0.1rem 0.1rem darken($main, 5%);
+
+    .fa{
+      font-size: 2.0rem;
+      margin-right: 0.3rem;
+      transition: margin 100ms cubic-bezier(.5,.97,.13,.67);
+        &:hover{
+          margin-right: 0.8rem;
+          transition: margin 100ms cubic-bezier(.5,.97,.13,.67);
+        }
+    }
+  }
+}
+
+.nav__list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-transform: capitalize;
+  width: 100%;
+  margin: 0;
+  text-shadow: 0.1rem 0.1rem 0.1rem darken($main, 5%);
+}
+.nav{
+  width: 100%;
+  &__item {
+    width: calc(100% / 11);
+    text-align: center;
+    padding: 1rem 0;
+    &:first-of-type{
+      text-align: left;
+    }
+    &--new-link{
+      background: lighten($main, 3%);
+      width: calc(100% / 7);
+      flex-grow: 1;
+      text-align: center;
+      border-radius: $gutter $gutter 0 0;
+      transition: background 200ms ease-out;
+      &:hover {
+        background: lighten($main, 4%);
+        transition: background 200ms linear;
+      }
+    }
+  }
 }
 
 .world {
@@ -30,12 +91,26 @@ a {
   flex-direction: column;
 }
 .container {
-  width: 60%;
+  width: 70%;
   padding: 0 $gutter;
   margin: 0 auto;
 }
 
+.top-categories {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: $gutter;
+}
 
+.note-card {
+  background: #fff;
+  margin-top: 1.6rem;
+  padding: 0 1rem;
+    border: 0.05rem solid #e8e8e8;
+    box-shadow: 0.2rem 0.2rem 0.1rem rgba(#ddd,.45);
+  border-radius: 0.2rem;
+}
 
 .todo-list {
   width: 100%;
@@ -43,51 +118,107 @@ a {
   flex-direction: column;
   vertical-align: middle;
   align-content: space-between;
+  margin-top: 0;
+  box-shadow: 0.15rem 0.15rem 0.1rem rgba(#ddd,.35);
   &__item {
     display: flex;
     align-items: center;
     vertical-align: middle;
-    margin: 0.2rem 0;
     padding: 0 $gutter;
-      border: 0.05rem solid #e8e8e8;
-      box-shadow: 0.15rem 0.15rem 0.1rem rgba(#ddd,.45);
-    border-radius: 0.4rem;
+      border: 0.05rem solid rgba(#e8e8e8,.70);
+    border-radius: 0.2rem;
   }
   &__title{
     flex-grow: 1;
   }
 }
 
+.page-title{
+  font-weight: normal;
+    strong{
+      color: $accent;
+    }
+}
+
+.collection__item {
+  font-size: 1.2rem;
+  padding: 0.4rem;
+  display: flex;
+  align-items: center;
+}
+.todo-item{
+  &__name {
+    flex-grow: 1;
+    padding-left: 0.6rem;
+  }
+  &__done {
+    color: #606060;
+    &:hover {
+      color: $accent;
+    }
+  }
+}
 .btn {
   font-size: 0.8rem;
-  background: #5e666a;
+  align-items: center;
+  background: #1eaae6;
   padding: 0.35rem;
-  vertical-align: middle;
   text-align: center;
   border: none;
-  border-radius: 0.3rem;
+  border-radius: 0.2rem;
   color: #fff;
   text-transform: uppercase;
   box-shadow: 0.1rem 0.1rem 0.2rem rgba(#c2c0c0,.6);
-  margin: 0 0.2rem;
+  margin: 0 0.1rem;
+  transition: background 200ms ease-out;
 
     &:hover{
       background: $main;
+      transition: background 150ms ease-in;
     }
 }
 .edit-btn{
-  padding: 0.35rem 0.5rem;
+  padding: 0.35rem;
 }
 
 .new-btn {
-  background: #02b3eb;
+  background: #fbbd44;
   padding: 0.35rem 0.6rem;
+  vertical-align: middle;
 }
 
 .delete-btn {
   background: $delete;
-  padding: 0.35rem;
-    &:hover{
+  outline: none;
+
+    button {
+      padding: 0.35rem;
+    }
+    &:hover {
       background: darken($delete, 5%);
+      cursor: pointer;
+    }
+}
+
+.editing {
+  width: 100%;
+  &__form {
+    width: 100%;
+    padding: 1rem 0;
+  }
+}
+.my-input {
+  width: 100%;
+  border: 0;
+  font-size: 1rem;
+  padding: 0.3rem 0.1rem;
+  outline: none;
+  margin-bottom: 0.5rem;
+  border-bottom: 0.03rem solid #818181;
+  transition: background 200ms linear, border 150ms linear;
+    &:focus {
+      background: rgba(#f0ff95,.59);
+      border-bottom: 0.03rem solid $accent;
+      transition: background 200ms linear, border 150ms linear;
     }
 }

@@ -1,32 +1,34 @@
 <div class="world">
 <div class="top-nav">
-  <div class="container">
-    <div class="top-nav__content">
-      <span class="top-nav__content__title">
-        {{#link-to "todo-group"}}
-        <h3>Todos</h3>
-        {{/link-to}}
-      </span>
+<div class="top-nav__container">
+  <div class="top-nav__content">
+    <div class="top-nav__content__title">
+      {{#link-to "todo-group"}}
+      <span><i class="fa fa-list-ul" aria-hidden="true"></i>Todos</span>
+      {{/link-to}}
     </div>
   </div>
-  <nav class="nav">
-    <ul class="nav__list">
-    {{#each model as |item|}}
-    <li>
-      {{#link-to "todo-group.detail" item class="nav__item"}}
-      {{item.title}}
-      {{/link-to}}
-    </li>
-    {{/each}}
-    <li>
-      {{#link-to "todo-group.new" class="nav__item nav__item--new-link"}}
-      New Category
-      {{/link-to}}
-    </li>
-  </ul>
-  </nav>
+    <nav class="nav">
+  <ul class="nav__list">
+  {{#each model as |item|}}
+  {{#link-to "todo-group.detail" item class="nav__item"}}
+  <li>
+    {{item.title}}
+  </li>
+  {{/link-to}}
+  {{/each}}
+  {{#link-to "todo-group.new" class="nav__item nav__item--new-link"}}
+  <li>
+    New Category
+  </li>
+  {{/link-to}}
+    </ul>
+    </nav>
+</div>
 </div>
 <div class="container">
+  <div class="note-card">
   {{outlet}}
+  </div>
 </div>
 </div>
