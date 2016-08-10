@@ -4,11 +4,12 @@ $main: #1fc7b3;
 $accent: #462999;
 $orange: #f2b130;
 $delete: #d11;
+$background: #f6f6f6;
 
 body {
   margin: 0;
   width: 100%;
-  background: #f6f6f6;
+  background: $background;
   font-family: 'Raleway', sans-serif;
   color: #131313;
 }
@@ -68,8 +69,20 @@ a {
     width: calc(100% / 11);
     text-align: center;
     padding: 1rem 0;
+    border-bottom: 0.2rem solid $main;
+    transition: border 300ms ease-out, color 400ms ease-in, text-shadow 300ms ease-out;
     &:first-of-type{
-      text-align: left;
+      // text-align: left;
+    }
+    &:hover {
+      border-bottom: 0.2rem solid lighten($main, 10%);
+      transition: border 200ms ease-in;
+    }
+    &.active {
+      color: $accent;
+      border-bottom: 0.2rem solid $accent;
+      text-shadow: 0.1rem 0.1rem 0.1rem lighten($main, 40%);
+      transition: border 400ms ease-in 10ms, color 400ms ease-in, text-shadow 300ms ease-in;
     }
     &--new-link{
       background: lighten($main, 3%);
@@ -77,7 +90,14 @@ a {
       flex-grow: 1;
       text-align: center;
       border-radius: $gutter $gutter 0 0;
-      transition: background 200ms ease-out;
+      transition: background 200ms ease-out, border 300ms ease-out, color 300ms ease-out;
+      border-bottom: 0.2rem solid lighten($main, 3%);
+      &.active {
+        color: #fff;
+        border-bottom: 0.2rem solid $background;
+        text-shadow: 0.1rem 0.1rem 0.1rem lighten($accent, 40%);
+        transition: border 400ms ease-in 10ms, color 400ms ease-in, text-shadow 300ms ease-in;
+      }
       &:hover {
         background: lighten($main, 4%);
         transition: background 200ms linear;
@@ -106,6 +126,7 @@ a {
 
 .note-card {
   background: #fff;
+  min-height: 20vh;
   margin-top: 1.6rem;
   padding: 0 1rem;
     border: 0.05rem solid #e8e8e8;
@@ -229,6 +250,7 @@ a {
 .editing {
   width: 100%;
   &__form {
+    display: flex;
     width: 100%;
     padding: 1rem 0;
   }

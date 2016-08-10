@@ -15,7 +15,7 @@
 {{/each}}
 {{#simple-form onsubmit=(action "createTodoItem" model) as |formValues|}}
 <li class="todo-list__item collection__item">
-  {{input type="text" value=formValues.name class="input todo-item-name my-input"}}
+  {{input type="text" value=formValues.name class="input todo-item-name my-input" placeholder="Add a new item"}}
 
     <button type="submit" class="submit btn">ADD</button>
 </li>

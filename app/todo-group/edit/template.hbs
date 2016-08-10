@@ -1,11 +1,11 @@
 <div class="editing">
 
 <h3 class="page-title">Editing <strong>{{model.title}}</strong></h3>
-<div class="editing__form">
 {{#simple-form onsubmit=(action "updateCategory" model) as |formValues|}}
+<div class="editing__form">
 {{input value=model.title type="text" id="stuff" class="input title-input my-input"}}
 
   <button type="submit" class="submit btn">Save</button>
-{{/simple-form}}
 </div>
+{{/simple-form}}
 </div>
